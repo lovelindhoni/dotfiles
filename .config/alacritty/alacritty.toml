@@ -1,0 +1,24 @@
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/themes/catppuccin-latte.toml"
+  # "~/.config/alacritty/themes/catppuccin-frappe.toml"
+  #  "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
+   "~/.config/alacritty/themes/atom-one-dark.toml"
+  # "~/.config/alacritty/themes/tokyonight-night.toml"
+  # "~/.config/alacritty/themes/coolnight.toml"
+]
+
+font.size = 17
+
+[font.normal]
+family = "JetBrains Mono"
+
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+dynamic_padding = true
+startup_mode = "Maximized"
+decorations = "None"
