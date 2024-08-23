@@ -28,8 +28,6 @@ renamed = '👅'
 deleted = '🗑'
 
 # This is the default symbols table.
-[os.symbols]
-Fedora = "🎩 "
 
 [os]
 disabled = false

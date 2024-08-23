@@ -7,7 +7,7 @@ return {
 
         local colors = require("onedarkpro.helpers").get_colors("onedark_vivid")
         local config = require("onedarkpro.config").config
-
+        local shit = "sssi"
         local onedarkpro = {}
 
         onedarkpro.normal = {

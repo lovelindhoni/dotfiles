@@ -14,12 +14,15 @@ alias py="python"
 alias sync-music="rsync -avzP ~/Music/ vivo1820:storage/music/"
 alias bharath="java"
 alias bharathc="javac"
+alias c="clear"
 
 # env
 export CC=clang
 export CXX=clang++
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
+export FZF_COMPLETION_TRIGGER='--'
+export PATH=/home/lovelindhoni/Downloads/solana-release/bin:$PATH
 
 # zsh history stuffs
 HISTFILE=~/.zsh-utils/zsh_history # location of the history file
@@ -58,10 +61,8 @@ zinit light-mode for \
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zinit light zsh-users/zsh-syntax-highlighting 
 zinit light zsh-users/zsh-autosuggestions                 
-zinit ice lucid wait'0';
-zinit light joshskidmore/zsh-fzf-history-search
+zinit light chitoku-k/fzf-zsh-completions
 zinit light mroth/evalcache
-# zinit light chitoku-k/fzf-zsh-completions
 # Load starship theme
 # line 1: `starship` binary as command, from github release
 # line 2: starship setup at clone(create init.zsh, completion)
@@ -91,4 +92,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source "./.zsh-utils/functions.zsh"
+# sourcing
+source "/home/lovelindhoni/.zsh-utils/functions.zsh"
+source $HOME/.cargo/env
+
