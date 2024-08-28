@@ -1,6 +1,6 @@
 # aliases
 alias dnf="dnf5"
-alias stfu="shutdown now"
+alias shut="shutdown now"
 alias cd="z"
 alias cat="bat"
 alias ls="eza"
@@ -11,17 +11,18 @@ alias n="nvim"
 alias tx="tmux"
 alias l="ls"
 alias py="python"
-alias sync-music="rsync -avzP ~/Music/ vivo1820:storage/music/"
 alias bharath="java"
 alias bharathc="javac"
 alias c="clear"
 
 # env
 export CC=clang
+export EDITOR='nvim'
 export CXX=clang++
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
 export FZF_COMPLETION_TRIGGER='--'
+export CMAKE_GENERATOR='Ninja'
 export PATH=/home/lovelindhoni/Downloads/solana-release/bin:$PATH
 
 # zsh history stuffs
