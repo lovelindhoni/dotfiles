@@ -14,16 +14,16 @@ alias py="python"
 alias bharath="java"
 alias bharathc="javac"
 alias c="clear"
+alias :q="exit"
 
 # env
-export CC=clang
+export CC='clang'
 export EDITOR='nvim'
-export CXX=clang++
+export CXX='clang++'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
 export FZF_COMPLETION_TRIGGER='--'
 export CMAKE_GENERATOR='Ninja'
-export PATH=/home/lovelindhoni/Downloads/solana-release/bin:$PATH
 
 # zsh history stuffs
 HISTFILE=~/.zsh-utils/zsh_history # location of the history file
@@ -59,7 +59,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit light zsh-users/zsh-syntax-highlighting 
 zinit light zsh-users/zsh-autosuggestions                 
 zinit light chitoku-k/fzf-zsh-completions
@@ -96,4 +96,5 @@ unset __conda_setup
 # sourcing
 source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
+
 
