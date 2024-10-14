@@ -10,16 +10,16 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
--- keymap.set("n", "x", '"_x')
-
--- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>_", "<C-x>", { desc = "Decrement number" }) -- decrement
+keymap.set("n", "x", '"_x')
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+keymap.set("n", "<leader>sih", "<C-w>5+", { desc = "Increase the height of the split" }) -- increase the height of the split
+keymap.set("n", "<leader>sdh", "<C-w>5-", { desc = "Decrease the height of the split" }) -- decrease the height of the split
+keymap.set("n", "<leader>siw", "<C-w>5>", { desc = "Increase the width of the split" }) -- increase the width of the split
+keymap.set("n", "<leader>sdw", "<C-w>5<", { desc = "Decrease the width of the split" }) -- increase the width of the split
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab

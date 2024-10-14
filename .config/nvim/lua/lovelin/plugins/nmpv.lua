@@ -1,3 +1,3 @@
 return {
-  dir = "~/dev/nmpv.nvim",
+  dir = "~/dev/projects/nmpv.nvim",
 }

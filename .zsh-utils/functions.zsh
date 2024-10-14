@@ -32,3 +32,23 @@ function yt_dl() {
     
     echo "Download complete. Kept MP3 and subtitle files, removed other artifacts."
 }
+
+serve() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: serve PORT"
+        return 1
+    fi
+
+    PORT=$1
+    ssh -R 80:localhost:$PORT serveo.net
+}
+
+nvim_check_cpfolder() {
+    if [ "$PWD" = "$HOME/dev/cp" ] && [ $# -eq 0 ]; then
+        command nvim -S ./.cpsession.vim
+    else
+        command nvim "$@"
+    fi
+}
+
+alias nvim=nvim_check_cpfolder

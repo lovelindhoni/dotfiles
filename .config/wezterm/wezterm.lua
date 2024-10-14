@@ -37,7 +37,7 @@ local function split_nav(key)
 	}
 end
 
-config.font_size = 16
+config.font_size = 17
 
 config.window_decorations = "RESIZE"
 

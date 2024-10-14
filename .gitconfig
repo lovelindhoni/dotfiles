@@ -1,3 +1,5 @@
 [user]
 	email = jblovelindhoni@gmail.com
 	name = lovelindhoni
+[commit]
+	template = /home/lovelindhoni/.gitmessage.txt

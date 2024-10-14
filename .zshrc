@@ -1,29 +1,26 @@
 # aliases
 alias dnf="dnf5"
-alias shut="shutdown now"
+alias shut="telinit 0"
 alias cd="z"
-alias cat="bat"
 alias ls="eza"
 alias pn="pnpm"
 alias ..="cd .."
 alias ~="cd ~"
 alias n="nvim"
 alias tx="tmux"
-alias l="ls"
 alias py="python"
-alias bharath="java"
-alias bharathc="javac"
 alias c="clear"
-alias :q="exit"
 
 # env
-export CC='clang'
+# export CC='clang'
 export EDITOR='nvim'
-export CXX='clang++'
+# export CXX='clang++'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
 export FZF_COMPLETION_TRIGGER='--'
 export CMAKE_GENERATOR='Ninja'
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 # zsh history stuffs
 HISTFILE=~/.zsh-utils/zsh_history # location of the history file
@@ -98,3 +95,4 @@ source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
 
 
+alias keploy='sudo -E env PATH="$PATH" keploy'
