@@ -1,6 +1,6 @@
 # aliases
 alias dnf="dnf5"
-alias shut="telinit 0"
+alias off="telinit 0"
 alias cd="z"
 alias ls="eza"
 alias pn="pnpm"
@@ -12,12 +12,9 @@ alias py="python"
 alias c="clear"
 
 # env
-# export CC='clang'
 export EDITOR='nvim'
-# export CXX='clang++'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
-export FZF_COMPLETION_TRIGGER='--'
 export CMAKE_GENERATOR='Ninja'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -93,6 +90,5 @@ unset __conda_setup
 # sourcing
 source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
-
 
 alias keploy='sudo -E env PATH="$PATH" keploy'

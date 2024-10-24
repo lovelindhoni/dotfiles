@@ -20,6 +20,8 @@ local direction_keys = {
 	l = "Right",
 }
 
+config.font = wezterm.font("JetBrains Mono")
+
 local function split_nav(key)
 	return {
 		key = key,
@@ -37,7 +39,7 @@ local function split_nav(key)
 	}
 end
 
-config.font_size = 17
+config.font_size = 18
 
 config.window_decorations = "RESIZE"
 
@@ -45,6 +47,8 @@ config.window_frame = {
 	font_size = 13.0,
 }
 
+-- config.enable_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
 	top = 10,
 	bottom = 10,
@@ -52,20 +56,12 @@ config.window_padding = {
 	right = 10,
 }
 
-local colors, metadata = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
-config.colors = colors
+local onedark_colors, _ = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
 
--- config.colors = {
--- 	foreground = "#CBE0F0",
--- 	background = "#011423",
--- 	cursor_bg = "#47FF9C",
--- 	cursor_border = "#47FF9C",
--- 	cursor_fg = "#011423",
--- 	selection_bg = "#033259",
--- 	selection_fg = "#CBE0F0",
--- 	ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#24EAF7", "#24EAF7" },
--- 	brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
--- }
+local tokyonight_colors, _ = wezterm.color.load_scheme("./.config/wezterm/colors/tokyonight_night.toml")
+
+local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/colors/everforest-dark-hard.toml")
+config.colors = everforest_dark_hard
 
 config.window_background_opacity = 1
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }

@@ -22,6 +22,9 @@ return {
       },
       -- ensure these language parsers are installed
       ensure_installed = {
+        "c",
+        "cpp",
+        "go",
         "json",
         "javascript",
         "typescript",
@@ -36,12 +39,9 @@ return {
         "lua",
         "dockerfile",
         "gitignore",
-        "cpp",
-        "c",
         "python",
         "sql",
         "toml",
-        "go",
       },
       incremental_selection = {
         enable = true,
