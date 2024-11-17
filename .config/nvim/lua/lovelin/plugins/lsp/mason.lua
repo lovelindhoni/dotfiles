@@ -34,10 +34,11 @@ return {
         "lua_ls",
         "pyright",
         "clangd",
+        "denols",
         "sqlls",
         "bashls",
-        "cmake",
         "gopls",
+        "yamlls",
       },
     })
 

@@ -1,6 +1,5 @@
 # aliases
-alias dnf="dnf5"
-alias off="telinit 0"
+alias sudo="sudo "
 alias cd="z"
 alias ls="eza"
 alias pn="pnpm"
@@ -9,7 +8,7 @@ alias ~="cd ~"
 alias n="nvim"
 alias tx="tmux"
 alias py="python"
-alias c="clear"
+alias rmf="rm -rf"
 
 # env
 export EDITOR='nvim'
@@ -72,6 +71,17 @@ _evalcache zoxide init zsh
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of Zinit's installer chunk
 
+if [ -z "$TMUX" ]; then
+  tmux has-session -t "default" 2>/dev/null
+  if [ $? != 0 ]; then
+    tmux new-session -s "default"
+  else
+    tmux attach-session -t "default"
+  fi
+  # Exit the shell when the tmux session ends
+  exit
+fi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/lovelindhoni/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -92,3 +102,13 @@ source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
 
 alias keploy='sudo -E env PATH="$PATH" keploy'
+. "/home/lovelindhoni/.deno/env"
+
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/lovelindhoni/.zsh/completions:"* ]]; then export FPATH="/home/lovelindhoni/.zsh/completions:$FPATH"; fi
+
+# Deno Version Manager
+export DVM_DIR="$HOME/.dvm"
+[ -f "$DVM_DIR/dvm.sh" ] && . "$DVM_DIR/dvm.sh"
+[ -f "$DVM_DIR/bash_completion" ] && . "$DVM_DIR/bash_completion"
+
