@@ -1,5 +1,6 @@
 # Inserts a blank line between shell prompts
 add_newline = true
+command_timeout = 700
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -37,5 +38,7 @@ format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
 [conda]
 ignore_base = true
 
+[battery]
+disabled = true
 
 # ~/.config/starship.toml

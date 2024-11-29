@@ -85,11 +85,17 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["ts_ls"] = function()
+        lspconfig["ts_ls"].setup({
+          capabilities = capabilities,
+          single_file_support = true,
+        })
+      end,
       ["svelte"] = function()
         -- configure svelte server
         lspconfig["svelte"].setup({
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
+          on_attach = function(client, _)
             vim.api.nvim_create_autocmd("BufWritePost", {
               pattern = { "*.js", "*.ts" },
               callback = function(ctx)
@@ -122,33 +128,6 @@ return {
               },
             },
           },
-        })
-      end,
-      ["denols"] = function()
-        lspconfig["denols"].setup({
-          capabilities = capabilities,
-          root_dir = lspconfig.util.root_pattern("deno.lock", "deno.json", "deno.jsonc"),
-          settings = {
-            deno = {
-              enable = false,
-            },
-            typescript = {
-              inlayHints = {
-                enabled = "on",
-                functionLikeReturnTypes = { enabled = true },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-              },
-            },
-          },
-          single_file_support = true,
-        })
-      end,
-      ["ts_ls"] = function()
-        lspconfig["ts_ls"].setup({
-          capabilities = capabilities,
-          root_dir = lspconfig.util.root_pattern("package.json"),
-          single_file_support = false,
         })
       end,
     })

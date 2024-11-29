@@ -52,7 +52,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit light zsh-users/zsh-syntax-highlighting 
 zinit light zsh-users/zsh-autosuggestions                 
 zinit light chitoku-k/fzf-zsh-completions
@@ -71,16 +70,17 @@ _evalcache zoxide init zsh
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of Zinit's installer chunk
 
-if [ -z "$TMUX" ]; then
-  tmux has-session -t "default" 2>/dev/null
-  if [ $? != 0 ]; then
-    tmux new-session -s "default"
-  else
-    tmux attach-session -t "default"
-  fi
-  # Exit the shell when the tmux session ends
-  exit
-fi
+# export SESH=$(ps -p $PPID -o comm=)
+# if [ -z "$TMUX" ]; then
+#   if ! tmux has-session -t "$SESH" 2>/dev/null; then
+#     tmux new-session -s "$SESH"
+#   else
+#     tmux attach-session -t "$SESH"
+#   fi
+#   if ! tmux has-session -t "$SESH" 3>/dev/null; then
+#     exit
+#   fi
+# fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -104,11 +104,7 @@ source $HOME/.cargo/env
 alias keploy='sudo -E env PATH="$PATH" keploy'
 . "/home/lovelindhoni/.deno/env"
 
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/lovelindhoni/.zsh/completions:"* ]]; then export FPATH="/home/lovelindhoni/.zsh/completions:$FPATH"; fi
-
 # Deno Version Manager
 export DVM_DIR="$HOME/.dvm"
 [ -f "$DVM_DIR/dvm.sh" ] && . "$DVM_DIR/dvm.sh"
 [ -f "$DVM_DIR/bash_completion" ] && . "$DVM_DIR/bash_completion"
-
