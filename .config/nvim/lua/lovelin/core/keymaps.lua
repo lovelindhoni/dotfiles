@@ -28,5 +28,5 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- buffer management
-keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Switch to previous buffer" })
-keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Switch to next buffer" })
+-- keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Switch to previous buffer" })
+-- keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Switch to next buffer" })

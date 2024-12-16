@@ -9,12 +9,13 @@ alias n="nvim"
 alias tx="tmux"
 alias py="python"
 alias rmf="rm -rf"
+alias c="clear"
 
 # env
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
-export CMAKE_GENERATOR='Ninja'
+# export CMAKE_GENERATOR='Ninja'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -108,3 +109,7 @@ alias keploy='sudo -E env PATH="$PATH" keploy'
 export DVM_DIR="$HOME/.dvm"
 [ -f "$DVM_DIR/dvm.sh" ] && . "$DVM_DIR/dvm.sh"
 [ -f "$DVM_DIR/bash_completion" ] && . "$DVM_DIR/bash_completion"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

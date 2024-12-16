@@ -24,7 +24,6 @@ return {
       ensure_installed = {
         "c",
         "cpp",
-        "go",
         "json",
         "javascript",
         "typescript",
@@ -37,11 +36,11 @@ return {
         "svelte",
         "bash",
         "lua",
-        "dockerfile",
         "gitignore",
         "python",
         "sql",
         "toml",
+        "rust",
       },
       incremental_selection = {
         enable = true,

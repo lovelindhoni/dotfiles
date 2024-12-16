@@ -20,6 +20,7 @@ return {
         lua = { "stylua" },
         python = { "isort" },
         cpp = { "clang-format" },
+        rust = { "rustfmt" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -27,7 +28,7 @@ return {
       },
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+    vim.keymap.set({ "n", "v" }, "<leader>pp", function()
       conform.format({
         lsp_fallback = true,
         timeout_ms = 500,

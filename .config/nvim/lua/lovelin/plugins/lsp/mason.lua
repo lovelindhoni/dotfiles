@@ -34,18 +34,17 @@ return {
         "clangd",
         "sqlls",
         "bashls",
-        "gopls",
         "yamlls",
         "ts_ls",
+        "rust_analyzer@2024-10-14",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
         "stylua", -- lua formatter
-        "isort",  -- python formatter
+        "isort", -- python formatter
         "clang-format",
-        "golangci-lint",
         "prettier",
       },
     })
