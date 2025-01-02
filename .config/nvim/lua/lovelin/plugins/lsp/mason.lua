@@ -27,7 +27,6 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "html",
-        "tailwindcss",
         "svelte",
         "lua_ls",
         "pyright",

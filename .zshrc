@@ -9,7 +9,8 @@ alias n="nvim"
 alias tx="tmux"
 alias py="python"
 alias rmf="rm -rf"
-alias c="clear"
+alias keploy='sudo -E env PATH="$PATH" keploy'
+. "/home/lovelindhoni/.deno/env"
 
 # env
 export EDITOR='nvim'
@@ -18,6 +19,7 @@ export GIT_PAGER='bat'
 # export CMAKE_GENERATOR='Ninja'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export DIRENV_LOG_FORMAT=
 
 # zsh history stuffs
 HISTFILE=~/.zsh-utils/zsh_history # location of the history file
@@ -67,49 +69,15 @@ zinit ice as"command" from"gh-r" \
 zinit light starship/starship
 _evalcache fzf --zsh
 _evalcache zoxide init zsh
+_evalcache direnv hook zsh
 
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of Zinit's installer chunk
-
-# export SESH=$(ps -p $PPID -o comm=)
-# if [ -z "$TMUX" ]; then
-#   if ! tmux has-session -t "$SESH" 2>/dev/null; then
-#     tmux new-session -s "$SESH"
-#   else
-#     tmux attach-session -t "$SESH"
-#   fi
-#   if ! tmux has-session -t "$SESH" 3>/dev/null; then
-#     exit
-#   fi
-# fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lovelindhoni/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-    if [ -f "/home/lovelindhoni/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lovelindhoni/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lovelindhoni/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # sourcing
 source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
 
-alias keploy='sudo -E env PATH="$PATH" keploy'
-. "/home/lovelindhoni/.deno/env"
-
-# Deno Version Manager
-export DVM_DIR="$HOME/.dvm"
-[ -f "$DVM_DIR/dvm.sh" ] && . "$DVM_DIR/dvm.sh"
-[ -f "$DVM_DIR/bash_completion" ] && . "$DVM_DIR/bash_completion"
-
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+_evalcache pyenv init -

@@ -1,10 +1,16 @@
 # Inserts a blank line between shell prompts
 add_newline = true
-command_timeout = 700
+command_timeout = 500
+palette = "everforest"
 
 # Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+# [character] # The name of the module we are configuring is 'character'
+# success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -23,7 +29,7 @@ stashed = '📦'
 modified = '📝'
 staged = '[++\($count\)](green)'
 renamed = '👅'
-deleted = '🗑'
+deleted = '🗑️ '
 
 # This is the default symbols table.
 
@@ -33,7 +39,44 @@ style = "bold blue"
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+style = 'fg:blue'
+
+[directory]
+style = "fg:orange"
+read_only_style = "fg:orange"
+
+[git_branch]
+style = "fg:green"
+
+[palettes.everforest]
+bg_dim = "#232a2e"
+bg0 = "#2d353b"
+bg1 = "#343f44"
+bg2 = "#3d484d"
+bg3 = "#475258"
+bg4 = "#4f585e"
+bg5 = "#56635f"
+bg_visual = "#543a48"
+bg_red = "#514045"
+bg_green = "#425047"
+bg_blue = "#3a515d"
+bg_yellow = "#4d4c43"
+
+fg = "#d3c6aa"
+red = "#e67e80"
+
+orange = "#e69875"
+yellow = "#dbbc7f"
+green = "#a7c080"
+aqua = "#83c092"
+blue = "#7fbbb3"
+purple = "#d699b6"
+grey0 = "#7a8478"
+grey1 = "#859289"
+grey2 = "#9da9a0"
+statusline1 = "#a7c080"
+statusline2 = "#d3c6aa"
+statusline3 = "#e67e80"
 
 [conda]
 ignore_base = true
