@@ -46,7 +46,23 @@ return {
       [[                                                                       ]],
     }
 
-    dashboard.section.header.val = neovim
+    local cross = {
+      [[                                         ________________________     ]],
+      [[   /\    /\                             /                        \    ]],
+      [[   \ \  / /                            /                          \   ]],
+      [[    \ \/ /~~.                         /                            \  ]],
+      [[     \  //_/                         /                              \ ]],
+      [[     /  \/                          /                                \]],
+      [[    / /\ \                         /                                  ]],
+      [[   / /| \/                       _/                                   ]],
+      [[  / / --/                       /                                     ]],
+      [[ / / /  |                   ___/                                      ]],
+      [[/ / /   |                 _/                                          ]],
+      [[\/  \   \_      _________/                                            ]],
+      [[---------------/                                                      ]],
+    }
+
+    dashboard.section.header.val = cross
     -- Set menu
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New File", "<cmd>ene<CR>"),

@@ -9,6 +9,8 @@ alias n="nvim"
 alias tx="tmux"
 alias py="python"
 alias rmf="rm -rf"
+alias q="exit"
+alias c="clear"
 alias keploy='sudo -E env PATH="$PATH" keploy'
 . "/home/lovelindhoni/.deno/env"
 
@@ -70,6 +72,7 @@ zinit light starship/starship
 _evalcache fzf --zsh
 _evalcache zoxide init zsh
 _evalcache direnv hook zsh
+# bindkey '^I' autosuggest-accept
 
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of Zinit's installer chunk
@@ -78,6 +81,18 @@ _evalcache direnv hook zsh
 source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-_evalcache pyenv init -
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lovelindhoni/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lovelindhoni/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lovelindhoni/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lovelindhoni/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

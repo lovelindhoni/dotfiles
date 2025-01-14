@@ -1,9 +1,14 @@
 [user]
-	email = jblovelindhoni@gmail.com
-	name = lovelindhoni
+	email = 100030865+lovelindhoni@users.noreply.github.com
+	name = Lovelin
 [commit]
 	template = /home/lovelindhoni/.gitmessage.txt
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
