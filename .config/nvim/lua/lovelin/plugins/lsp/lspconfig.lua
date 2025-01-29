@@ -116,6 +116,7 @@ return {
       ["rust_analyzer"] = function()
         lspconfig["rust_analyzer"].setup({
           capabilities = capabilities,
+          single_file_support = true,
         })
       end,
       ["lua_ls"] = function()
