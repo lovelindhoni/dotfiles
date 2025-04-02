@@ -9,10 +9,8 @@ alias n="nvim"
 alias tx="tmux"
 alias py="python"
 alias rmf="rm -rf"
-alias q="exit"
 alias c="clear"
-alias keploy='sudo -E env PATH="$PATH" keploy'
-. "/home/lovelindhoni/.deno/env"
+alias :q="exit"
 
 # env
 export EDITOR='nvim'
@@ -21,6 +19,7 @@ export GIT_PAGER='bat'
 # export CMAKE_GENERATOR='Ninja'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/bin
 export DIRENV_LOG_FORMAT=
 
 # zsh history stuffs
@@ -96,3 +95,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/lovelindhoni/.lmstudio/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+. "/home/lovelindhoni/.deno/env"

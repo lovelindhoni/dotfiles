@@ -36,6 +36,7 @@ return {
         "yamlls",
         "ts_ls",
         "rust_analyzer@2024-10-14",
+        "graphql",
       },
     })
 

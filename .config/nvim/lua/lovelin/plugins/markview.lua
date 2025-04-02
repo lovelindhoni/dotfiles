@@ -3,7 +3,9 @@ return {
   ft = "markdown", -- If you decide to lazy-load anyway
   config = function()
     require("markview").setup({
-      initial_state = false,
+      preview = {
+        enable = false,
+      },
     })
     vim.keymap.set("n", "<leader>md", ":Markview toggle<CR>", {
       noremap = true,

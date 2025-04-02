@@ -17,7 +17,6 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
-
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
@@ -111,6 +110,13 @@ return {
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+        })
+      end,
+      ["graphql"] = function()
+        lspconfig["graphql"].setup({
+          capabilities = capabilities,
+          filetypes = { "ron", "graphql" },
+          single_file_support = true,
         })
       end,
       ["rust_analyzer"] = function()

@@ -9,8 +9,8 @@ local nvim_tree = {
       vim.cmd("edit " .. file.fname)
     end)
     -- recommended settings from nvim-tree documentation
-    -- vim.g.loaded_netrw = 1
-    -- vim.g.loaded_netrwPlugin = 1
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
     -- local HEIGHT_RATIO = 0.9 -- You can change this
     -- local WIDTH_RATIO = 0.4 -- You can change this too
     nvimtree.setup({

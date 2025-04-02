@@ -13,6 +13,9 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
+vim.cmd("autocmd FileType * set formatoptions-=cro")
+-- vim.o.pumblend = 10
+
 -- line wrapping
 opt.wrap = false -- disable line wrapping
 

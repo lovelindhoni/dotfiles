@@ -22,11 +22,12 @@ local everforest = {
   priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
     require("everforest").setup({
-      -- transparent_background_level = 2,
+      transparent_background_level = 0,
       background = "hard",
       italics = true,
     })
-    vim.cmd([[colorscheme everforest]])
+
+    vim.cmd("colorscheme everforest")
   end,
 }
 
@@ -63,6 +64,17 @@ local onenord = {
   priority = 1000,
   config = function()
     require("onenord").setup()
+  end,
+}
+
+local gruvbox = {
+  "ellisonleao/gruvbox.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("gruvbox").setup()
+    vim.o.background = "dark"
+    vim.cmd([[colorscheme gruvbox]])
   end,
 }
 

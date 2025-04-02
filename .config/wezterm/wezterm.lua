@@ -49,7 +49,7 @@ local function split_nav(resize_or_move, key)
 	}
 end
 
-config.font_size = 18
+config.font_size = 17
 config.window_decorations = "RESIZE"
 config.window_frame = {
 	font_size = 13.0,
@@ -69,10 +69,12 @@ config.window_padding = {
 local onedark_colors, _ = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
 local tokyonight_colors, _ = wezterm.color.load_scheme("./.config/wezterm/colors/tokyonight_night.toml")
 local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/colors/everforest-dark-hard.toml")
--- config.color_scheme = "Everforest Dark Hard (Gogh)"
+local moonfly, _ = wezterm.color.load_scheme("./.config/wezterm/colors/moonfly.toml")
 config.colors = everforest_dark_hard
 
--- config.window_background_opacity = 0.8
+-- config.color_scheme = "GruvboxDark"
+
+-- config.window_background_opacity = 0.85
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.warn_about_missing_glyphs = false
 
@@ -167,18 +169,6 @@ config.status_update_interval = 10000
 
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 
-local colors = {
-	bg0 = "#323d43",
-	bg1 = "#3c474d",
-	bg3 = "#505a60",
-	fg = "#d8caac",
-	aqua = "#87c095",
-	green = "#a7c080",
-	orange = "#e39b7b",
-	purple = "#d39bb6",
-	red = "#e68183",
-	grey1 = "#868d80",
-}
 tabline.setup({
 	sections = {
 		tabline_x = "",
@@ -186,6 +176,7 @@ tabline.setup({
 		tab_active = { "index", { "process", padding = { left = 0, right = 1 } } },
 	},
 	options = {
+		-- theme = "Gruvbox Material (Gogh)",
 		section_separators = {
 			left = wezterm.nerdfonts.ple_right_half_circle_thick,
 			right = wezterm.nerdfonts.ple_left_half_circle_thick,
