@@ -29,21 +29,19 @@ return {
         "html",
         "svelte",
         "lua_ls",
-        "pyright",
         "clangd",
+        "ruff",
         "sqlls",
         "bashls",
         "yamlls",
         "ts_ls",
         "rust_analyzer@2024-10-14",
-        "graphql",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "stylua", -- lua formatter
-        "isort", -- python formatter
+        "stylua",
         "clang-format",
         "prettier",
       },

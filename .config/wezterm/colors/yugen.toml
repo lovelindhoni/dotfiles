@@ -1,0 +1,93 @@
+# Wezterm color scheme for Yugen
+# Based on the Yugen Neovim theme by bettervim
+# https://github.com/bettervim/yugen.nvim
+#
+# This theme attempts to match the Neovim theme's color definitions,
+# including its specific choices for terminal ANSI colors.
+
+[metadata]
+name = "Yugen"
+author = "bettervim (Neovim theme); Wezterm port by AI"
+origin_url = "https://github.com/bettervim/yugen.nvim"
+
+[colors]
+# Main colors from Yugen's Normal highlight group { fg = p.color200, bg = p.color800 }
+foreground = "#D4D4D4"  # p.color200
+background = "#000000"  # p.color800
+
+# Cursor colors from Yugen's Cursor highlight { fg = p.color200, bg = p.placeholder }
+# Note: p.color200 (#D4D4D4) on p.placeholder (#FFFF00) might have low contrast.
+# Consider changing cursor_fg to "#000000" (p.color800) if readability is an issue.
+cursor_bg = "#FFFF00"    # p.placeholder
+cursor_fg = "#D4D4D4"    # p.color200
+cursor_border = "#FFFF00" # p.placeholder (to make a solid block cursor)
+
+# Selection colors from Yugen's Visual highlight { fg = p.color200, bg = p.color600 }
+selection_bg = "#303030"  # p.color600
+selection_fg = "#D4D4D4"  # p.color200
+
+# Split color from Yugen's VertSplit { fg = groups.border (p.color600) }
+split = "#303030"        # p.color600
+
+# Scrollbar thumb - chosen to fit the theme (p.color500)
+scrollbar_thumb = "#505050"
+
+# Compose cursor - using primary accent (p.primary)
+compose_cursor = "#FFBE89"
+
+# ANSI colors based on Yugen's vim.g.terminal_color_X definitions
+# These may not map to traditional color names but reflect the theme's intent.
+ansi = [
+  "#000000",  # Black (p.color800, terminal_color_0)
+  "#FFBE89",  # Red (p.primary, terminal_color_1)
+  "#696969",  # Green (p.color400, terminal_color_2)
+  "#FFF2AF",  # Yellow (p.warning, terminal_color_3)
+  "#696969",  # Blue (p.color400, terminal_color_4)
+  "#FFBE89",  # Magenta (p.primary, terminal_color_5)
+  "#D4D4D4",  # Cyan (p.color200, terminal_color_6)
+  "#FAFAFA",  # White (p.color100, terminal_color_7)
+]
+
+brights = [
+  "#A9A9A9",  # Bright Black (p.color300, terminal_color_8)
+  "#A9A9A9",  # Bright Red (p.color300, terminal_color_9)
+  "#505050",  # Bright Green (p.color500, terminal_color_10)
+  "#A9A9A9",  # Bright Yellow (p.color300, terminal_color_11)
+  "#FFBE89",  # Bright Blue (p.primary, terminal_color_12)
+  "#FFFF00",  # Bright Magenta (p.placeholder, terminal_color_13)
+  "#D4D4D4",  # Bright Cyan (p.color200, terminal_color_14)
+  "#FAFAFA",  # Bright White (p.color100, terminal_color_15)
+]
+
+# Indexed colors - Yugen does not seem to customize these extensively
+[colors.indexed]
+# Example: "136" = "#af8700" # No specific Yugen overrides found
+
+# Tab bar colors
+[colors.tab_bar]
+# Background from Yugen's TabLineFill { bg = p.color800 }
+background = "#000000"        # p.color800
+inactive_tab_edge = "#303030" # p.color600
+
+[colors.tab_bar.active_tab]
+# Active tab uses primary accent for background
+fg_color = "#000000"        # p.color800 (for contrast on primary bg)
+bg_color = "#FFBE89"        # p.primary
+
+[colors.tab_bar.inactive_tab]
+# Inactive tab text from Yugen's TabLine { fg = p.color200 }
+fg_color = "#D4D4D4"        # p.color200
+bg_color = "#151515"        # p.color700 (slightly lighter than main background)
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#FAFAFA"        # p.color100 (brighter text)
+bg_color = "#303030"        # p.color600 (slightly lighter background)
+
+[colors.tab_bar.new_tab]
+fg_color = "#D4D4D4"        # p.color200
+bg_color = "#151515"        # p.color700 (same as inactive tab)
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#FAFAFA"        # p.color100
+bg_color = "#303030"        # p.color600
+intensity = "Bold"

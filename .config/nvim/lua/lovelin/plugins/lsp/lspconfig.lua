@@ -112,13 +112,6 @@ return {
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
         })
       end,
-      ["graphql"] = function()
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "ron", "graphql" },
-          single_file_support = true,
-        })
-      end,
       ["rust_analyzer"] = function()
         lspconfig["rust_analyzer"].setup({
           capabilities = capabilities,

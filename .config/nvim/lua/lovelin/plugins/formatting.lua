@@ -18,8 +18,9 @@ return {
         toml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
-        python = { "isort" },
+        python = { "ruff_format" },
         cpp = { "clang-format" },
+        protobuf = { "clang-format" },
         rust = { "rustfmt" },
       },
       format_on_save = {

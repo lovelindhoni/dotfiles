@@ -78,4 +78,11 @@ local gruvbox = {
   end,
 }
 
+local yugen = {
+  "bettervim/yugen.nvim",
+  config = function()
+    vim.cmd.colorscheme("yugen")
+  end,
+}
+
 return everforest

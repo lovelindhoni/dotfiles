@@ -26,5 +26,5 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 
 -- buffer management
--- keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Switch to previous buffer" })
--- keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Switch to next buffer" })
+keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Switch to previous buffer" })
+keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Switch to next buffer" })

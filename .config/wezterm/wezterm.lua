@@ -1,6 +1,9 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
 local action = wezterm.action
+
+require("tabline")
+
 wezterm.on("gui-startup", function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
@@ -11,6 +14,7 @@ local function is_vim(pane)
 	-- this is set by the plugin, and unset on ExitPre in Neovim
 	return pane:get_user_vars().IS_NVIM == "true"
 end
+
 -- local function is_vim(pane)
 -- 	-- This gsub is equivalent to POSIX basename(3)
 -- 	-- Given "/foo/bar" returns "bar"
@@ -66,15 +70,14 @@ config.window_padding = {
 	right = 0,
 }
 
-local onedark_colors, _ = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
-local tokyonight_colors, _ = wezterm.color.load_scheme("./.config/wezterm/colors/tokyonight_night.toml")
+-- local onedark, _ = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
+-- local tokyonight, _ = wezterm.color.load_scheme("./.config/wezterm/colors/tokyonight_night.toml")
 local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/colors/everforest-dark-hard.toml")
-local moonfly, _ = wezterm.color.load_scheme("./.config/wezterm/colors/moonfly.toml")
+-- local moonfly, _ = wezterm.color.load_scheme("./.config/wezterm/colors/moonfly.toml")
 config.colors = everforest_dark_hard
 
--- config.color_scheme = "GruvboxDark"
-
 -- config.window_background_opacity = 0.85
+
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.warn_about_missing_glyphs = false
 
@@ -132,31 +135,8 @@ config.keys = {
 		mods = "ALT",
 		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|TABS|WORKSPACES" }),
 	},
-	{
-		key = "W",
-		mods = "CTRL|SHIFT",
-		action = action.PromptInputLine({
-			description = wezterm.format({
-				{ Attribute = { Intensity = "Bold" } },
-				{ Foreground = { AnsiColor = "Fuchsia" } },
-				{ Text = "Enter name for new workspace" },
-			}),
-			action = wezterm.action_callback(function(window, pane, line)
-				-- line will be `nil` if they hit escape without entering anything
-				-- An empty string if they just hit enter
-				-- Or the actual line of text they wrote
-				if line then
-					window:perform_action(
-						action.SwitchToWorkspace({
-							name = line,
-						}),
-						pane
-					)
-				end
-			end),
-		}),
-	},
 }
+
 for i = 1, 9 do
 	table.insert(config.keys, {
 		key = tostring(i),
@@ -166,79 +146,5 @@ for i = 1, 9 do
 end
 
 config.status_update_interval = 10000
-
-local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
-
-tabline.setup({
-	sections = {
-		tabline_x = "",
-		tabline_y = "",
-		tab_active = { "index", { "process", padding = { left = 0, right = 1 } } },
-	},
-	options = {
-		-- theme = "Gruvbox Material (Gogh)",
-		section_separators = {
-			left = wezterm.nerdfonts.ple_right_half_circle_thick,
-			right = wezterm.nerdfonts.ple_left_half_circle_thick,
-		},
-		component_separators = {
-			left = wezterm.nerdfonts.ple_right_half_circle_thin,
-			right = wezterm.nerdfonts.ple_left_half_circle_thin,
-		},
-		tab_separators = {
-			left = wezterm.nerdfonts.ple_right_half_circle_thick,
-			right = wezterm.nerdfonts.ple_left_half_circle_thick,
-		},
-		color_overrides = {
-			normal_mode = {
-				a = { fg = "#2d353b", bg = "#a7c080" },
-				b = { fg = "#a7c080", bg = "#42494e" },
-				c = { fg = "#d3c6aa", bg = "#2d353b" },
-			},
-			copy_mode = {
-				a = { fg = "#2d353b", bg = "#dbbc7f" },
-				b = { fg = "#dbbc7f", bg = "#42494e" },
-				c = { fg = "#d3c6aa", bg = "#2d353b" },
-			},
-			search_mode = {
-				a = { fg = "#2d353b", bg = "#7fbbb3" },
-				b = { fg = "#7fbbb3", bg = "#42494e" },
-				c = { fg = "#d3c6aa", bg = "#2d353b" },
-			},
-			tab = {
-				active = { fg = "#7fbbb3", bg = "#42494e" },
-				inactive = { fg = "#d3c6aa", bg = "#2d353b" },
-				inactive_hover = { fg = "#d699b6", bg = "#42494e" },
-			},
-			scheme = {
-				foreground = "#d3c6aa",
-				background = "#2d353b",
-				cursor_fg = "#2d353b",
-				cursor_bg = "#d3c6aa",
-				cursor_border = "#d3c6aa",
-				ansi = {
-					"#4b565c",
-					"#e67e80",
-					"#a7c080",
-					"#dbbc7f",
-					"#7fbbb3",
-					"#d699b6",
-					"#83c092",
-					"#d3c6aa",
-				},
-				brights = {
-					"#5c6a72",
-					"#f85552",
-					"#8da101",
-					"#dfa000",
-					"#3a94c5",
-					"#df69ba",
-					"#35a77c",
-					"#dfddc8",
-				},
-			},
-		},
-	},
-})
 
 return config

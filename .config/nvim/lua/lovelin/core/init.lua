@@ -9,4 +9,4 @@ end
 
 vim.api.nvim_create_user_command("Comp", Comp, {})
 
--- vim.keymap.set("n", "<leader>cp", ":lua Comp()<CR>", { desc = "Compile CXX" })
+vim.keymap.set("n", "<leader>cp", ":lua Comp()<CR>", { desc = "Compile CXX" })
