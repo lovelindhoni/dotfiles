@@ -2,14 +2,13 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local action = wezterm.action
 
-require("tabline")
-
 wezterm.on("gui-startup", function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
 end)
 
 local config = wezterm.config_builder()
+
 local function is_vim(pane)
 	-- this is set by the plugin, and unset on ExitPre in Neovim
 	return pane:get_user_vars().IS_NVIM == "true"
@@ -66,8 +65,8 @@ config.window_close_confirmation = "NeverPrompt"
 config.show_new_tab_button_in_tab_bar = false
 config.window_padding = {
 	bottom = 0,
-	left = 0,
-	right = 0,
+	left = 10,
+	right = 10,
 }
 
 -- local onedark, _ = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
@@ -76,14 +75,29 @@ local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/col
 -- local moonfly, _ = wezterm.color.load_scheme("./.config/wezterm/colors/moonfly.toml")
 config.colors = everforest_dark_hard
 
--- config.window_background_opacity = 0.85
+-- config.window_background_opacity = 0.90
 
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.warn_about_missing_glyphs = false
 
 config.keys = {
-
+	{ key = "r", mods = "ALT", action = action.ReloadConfiguration },
 	{ key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+	{
+		key = "9",
+		mods = "ALT",
+		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|TABS|WORKSPACES" }),
+	},
+}
+
+require("tabline")
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
+local tmux_like_keys = {
+	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+	{
+		key = "a",
+		mods = "LEADER|CTRL",
+		action = action.SendKey({ key = "a", mods = "CTRL" }),
+	},
 	{
 		key = "\\",
 		mods = "LEADER",
@@ -105,7 +119,6 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
 	},
-
 	{
 		key = "p",
 		mods = "LEADER",
@@ -116,12 +129,6 @@ config.keys = {
 		mods = "LEADER",
 		action = action.ActivateTabRelative(1),
 	},
-	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
-	{
-		key = "a",
-		mods = "LEADER|CTRL",
-		action = action.SendKey({ key = "a", mods = "CTRL" }),
-	},
 	split_nav("move", "h"),
 	split_nav("move", "j"),
 	split_nav("move", "k"),
@@ -130,13 +137,7 @@ config.keys = {
 	split_nav("resize", "j"),
 	split_nav("resize", "k"),
 	split_nav("resize", "l"),
-	{
-		key = "9",
-		mods = "ALT",
-		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|TABS|WORKSPACES" }),
-	},
 }
-
 for i = 1, 9 do
 	table.insert(config.keys, {
 		key = tostring(i),
@@ -144,7 +145,9 @@ for i = 1, 9 do
 		action = action.ActivateTab(i - 1),
 	})
 end
+for _, keymap in ipairs(tmux_like_keys) do
+	table.insert(config.keys, keymap)
+end
 
 config.status_update_interval = 10000
-
 return config

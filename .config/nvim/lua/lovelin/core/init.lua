@@ -2,11 +2,15 @@ require("lovelin.core.options")
 require("lovelin.core.keymaps")
 
 function Comp()
-  -- Compile the C++ program
-  local compile_command = "g++ -std=c++17 main.cxx -o main && ./main"
+  local compile_command = "g++ -std=c++17 main.cxx -o .main && ./.main"
   vim.cmd("! " .. compile_command)
 end
 
 vim.api.nvim_create_user_command("Comp", Comp, {})
-
 vim.keymap.set("n", "<leader>cp", ":lua Comp()<CR>", { desc = "Compile CXX" })
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  update_in_insert = false,
+})

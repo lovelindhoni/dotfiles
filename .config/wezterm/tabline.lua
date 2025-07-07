@@ -9,19 +9,7 @@ tabline.setup({
 		tab_active = { "index", { "process", padding = { left = 0, right = 1 } } },
 	},
 	options = {
-		section_separators = {
-			left = wezterm.nerdfonts.ple_right_half_circle_thick,
-			right = wezterm.nerdfonts.ple_left_half_circle_thick,
-		},
-		component_separators = {
-			left = wezterm.nerdfonts.ple_right_half_circle_thin,
-			right = wezterm.nerdfonts.ple_left_half_circle_thin,
-		},
-		tab_separators = {
-			left = wezterm.nerdfonts.ple_right_half_circle_thick,
-			right = wezterm.nerdfonts.ple_left_half_circle_thick,
-		},
-		color_overrides = {
+		theme_overrides = {
 			normal_mode = {
 				a = { fg = "#2d353b", bg = "#a7c080" },
 				b = { fg = "#a7c080", bg = "#42494e" },
@@ -69,6 +57,18 @@ tabline.setup({
 					"#dfddc8",
 				},
 			},
+		},
+		section_separators = {
+			left = wezterm.nerdfonts.ple_right_half_circle_thick,
+			right = wezterm.nerdfonts.ple_left_half_circle_thick,
+		},
+		component_separators = {
+			left = wezterm.nerdfonts.ple_right_half_circle_thin,
+			right = wezterm.nerdfonts.ple_left_half_circle_thin,
+		},
+		tab_separators = {
+			left = wezterm.nerdfonts.ple_right_half_circle_thick,
+			right = wezterm.nerdfonts.ple_left_half_circle_thick,
 		},
 	},
 })

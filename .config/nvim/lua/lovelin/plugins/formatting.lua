@@ -3,7 +3,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-
     conform.setup({
       formatters_by_ft = {
         javascript = { "prettier" },
@@ -22,6 +21,8 @@ return {
         cpp = { "clang-format" },
         protobuf = { "clang-format" },
         rust = { "rustfmt" },
+        nix = { "nixfmt" },
+        kotlin = { "ktfmt" },
       },
       format_on_save = {
         lsp_fallback = true,

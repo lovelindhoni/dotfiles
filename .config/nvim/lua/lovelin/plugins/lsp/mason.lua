@@ -36,6 +36,8 @@ return {
         "yamlls",
         "ts_ls",
         "rust_analyzer@2024-10-14",
+        "nil_ls",
+        "kotlin_language_server",
       },
     })
 
@@ -44,6 +46,7 @@ return {
         "stylua",
         "clang-format",
         "prettier",
+        "nixfmt",
       },
     })
   end,

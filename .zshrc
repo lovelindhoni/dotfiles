@@ -10,7 +10,8 @@ alias tx="tmux"
 alias py="python"
 alias rmf="rm -rf"
 alias c="clear"
-alias :q="exit"
+alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias zen="flatpak run app.zen_browser.zen"
 
 # env
 export EDITOR='nvim'
@@ -80,25 +81,6 @@ _evalcache direnv hook zsh
 source "/home/lovelindhoni/.zsh-utils/functions.zsh"
 source $HOME/.cargo/env
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lovelindhoni/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/lovelindhoni/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lovelindhoni/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lovelindhoni/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/lovelindhoni/.lmstudio/bin"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-. "/home/lovelindhoni/.deno/env"
+# if [ -z "$TMUX" ]; then
+#   tmux new-session -A -s master
+# fi

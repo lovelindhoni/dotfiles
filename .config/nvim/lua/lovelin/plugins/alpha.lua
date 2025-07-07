@@ -85,7 +85,7 @@ return {
       [[---------------/                                                      ]],
     }
 
-    dashboard.section.header.val = neovim
+    dashboard.section.header.val = cross
     dashboard.section.header.opts.position = "center"
     -- Set menu
     dashboard.section.buttons.val = {

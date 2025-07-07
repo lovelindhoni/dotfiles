@@ -44,7 +44,7 @@ serve() {
 }
 
 nvim_check_cpfolder() {
-    if [ "$PWD" = "$HOME/dev/cp" ] && [ $# -eq 0 ]; then
+    if [ "$PWD" = "$HOME/Dev/cp" ] && [ $# -eq 0 ]; then
         command nvim -S ./.cpsession.vim
     else
         command nvim "$@"

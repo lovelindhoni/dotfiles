@@ -41,6 +41,7 @@ return {
         "python",
         "sql",
         "rust",
+        "nix",
       },
       incremental_selection = {
         enable = true,
