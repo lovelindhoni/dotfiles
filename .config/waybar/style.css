@@ -1,0 +1,79 @@
+/* `otf-font-awesome` is required to be installed for icons */
+
+* {
+  /* Use JetBrainsMono Nerd Font as primary font */
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #e5e5e5;
+  transition-duration: 0.5s;
+  /* thick drop shadow behind the bar */
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.7);
+}
+
+#workspaces,
+#memory,
+#tray,
+#mode,
+#idle_inhibitor,
+#backlight,
+#battery,
+#wireplumber,
+#network,
+#mpris,
+#temperature {
+  border-radius: 8px;
+  margin: 7px 2px 0px 2px;
+  padding: 4px 8px;
+}
+
+#wireplumber {
+  padding-left: 17px;
+  /* padding-right: 5px; */
+}
+
+#cpu {
+  border-radius: 8px;
+  margin: 7px 2px 0px 2px;
+  /* increase left padding by 2px (from 8px to 10px) */
+  padding: 4px 8px 4px 10px;
+}
+
+#clock {
+  border-radius: 8px;
+  margin: 7px 2px 0px 2px;
+  /* increase right padding by 2px (from 8px to 10px) */
+  padding: 4px 10px 4px 8px;
+}
+
+#workspaces button {
+  color: #e5e5e5;
+  margin: 0 1px;
+  padding: 0 1px;
+}
+
+#tray {
+  margin-right: 8px;
+}
+
+#temperature.critical,
+#battery.critical,
+#battery.warning {
+  text-decoration: none;
+  border-bottom: 3px solid currentColor;
+  padding-bottom: 2px;
+}
+
+tooltip {
+  /* Force custom monospaced tooltip font */
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  background-color: #1f232b;
+}
+
+label:focus {
+  background-color: #1f232b;
+}

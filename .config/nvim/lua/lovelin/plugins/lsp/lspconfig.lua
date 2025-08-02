@@ -71,88 +71,91 @@ return {
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["ts_ls"] = function()
-        lspconfig["ts_ls"].setup({
-          capabilities = capabilities,
-          single_file_support = true,
-        })
-      end,
-      ["kotlin_language_server"] = function()
-        lspconfig["kotlin_language_server"].setup({
-          capabilities = capabilities,
-          single_file_support = true,
-        })
-      end,
-      ["svelte"] = function()
-        -- configure svelte server
-        lspconfig["svelte"].setup({
-          capabilities = capabilities,
-          on_attach = function(client, _)
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-              end,
-            })
-          end,
-        })
-      end,
-      ["emmet_ls"] = function()
-        -- configure emmet language server
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-        })
-      end,
-      ["rust_analyzer"] = function()
-        lspconfig["rust_analyzer"].setup({
-          capabilities = capabilities,
-          single_file_support = true,
-        })
-      end,
-      ["nil_ls"] = function()
-        lspconfig["nil_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            ["nil"] = {
-              formatting = {
-                command = { "nixfmt" },
+    -- Updated to use mason-lspconfig v2 API
+    mason_lspconfig.setup({
+      handlers = {
+        -- default handler for installed servers
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+        ["ts_ls"] = function()
+          lspconfig["ts_ls"].setup({
+            capabilities = capabilities,
+            single_file_support = true,
+          })
+        end,
+        ["kotlin_language_server"] = function()
+          lspconfig["kotlin_language_server"].setup({
+            capabilities = capabilities,
+            single_file_support = true,
+          })
+        end,
+        ["svelte"] = function()
+          -- configure svelte server
+          lspconfig["svelte"].setup({
+            capabilities = capabilities,
+            on_attach = function(client, _)
+              vim.api.nvim_create_autocmd("BufWritePost", {
+                pattern = { "*.js", "*.ts" },
+                callback = function(ctx)
+                  -- Here use ctx.match instead of ctx.file
+                  client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+                end,
+              })
+            end,
+          })
+        end,
+        ["emmet_ls"] = function()
+          -- configure emmet language server
+          lspconfig["emmet_ls"].setup({
+            capabilities = capabilities,
+            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          })
+        end,
+        ["rust_analyzer"] = function()
+          lspconfig["rust_analyzer"].setup({
+            capabilities = capabilities,
+            single_file_support = true,
+          })
+        end,
+        ["nil_ls"] = function()
+          lspconfig["nil_ls"].setup({
+            capabilities = capabilities,
+            settings = {
+              ["nil"] = {
+                formatting = {
+                  command = { "nixfmt" },
+                },
               },
             },
-          },
-        })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
+          })
+        end,
+        ["lua_ls"] = function()
+          -- configure lua server (with special settings)
+          lspconfig["lua_ls"].setup({
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                -- make the language server recognize "vim" global
+                diagnostics = {
+                  globals = { "vim" },
+                },
+                completion = {
+                  callSnippet = "Replace",
+                },
               },
             },
-          },
-        })
-      end,
+          })
+        end,
+      },
     })
   end,
 }

@@ -21,6 +21,7 @@ export GIT_PAGER='bat'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export DIRENV_LOG_FORMAT=
 
 # zsh history stuffs
@@ -32,8 +33,7 @@ setopt INC_APPEND_HISTORY # history file is updated immediately after a command 
 setopt SHARE_HISTORY # allows multiple Zsh sessions to share the same command history 
 setopt EXTENDED_HISTORY # records the time when each command was executed along with the command itself
 setopt APPENDHISTORY # ensures that each command entered in the current session is appended to the history file immediately after execution'
-export ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
-export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
+export ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0 export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
 export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=0
 
 ### Added by Zinit's installer
@@ -78,8 +78,7 @@ _evalcache direnv hook zsh
 ### End of Zinit's installer chunk
 
 # sourcing
-source "/home/lovelindhoni/.zsh-utils/functions.zsh"
-source $HOME/.cargo/env
+source "/home/lovelin/.zsh-utils/functions.zsh"
 
 # if [ -z "$TMUX" ]; then
 #   tmux new-session -A -s master

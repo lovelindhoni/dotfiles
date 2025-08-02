@@ -78,6 +78,39 @@ statusline1 = "#a7c080"
 statusline2 = "#d3c6aa"
 statusline3 = "#e67e80"
 
+[palettes.yugen]
+bg_dim = "#000000"
+bg0 = "#151515"
+bg1 = "#303030"
+bg2 = "#505050"
+bg3 = "#696969"
+bg4 = "#A9A9A9"
+bg5 = "#D4D4D4"
+
+bg_visual = "#303030"
+bg_red = "#2A1A1A"
+bg_green = "#1A2A1A"
+bg_blue = "#1A1A2A"
+bg_yellow = "#2A2A1A"
+
+fg = "#D2D2D2"
+
+red = "#F57A7A"
+orange = "#FFBE89"
+yellow = "#FFF2AF"
+green = "#7EAB8E"
+aqua = "#89BEFF"
+blue = "#89BEFF"
+purple = "#BE89FF"
+
+grey0 = "#505050"
+grey1 = "#696969"
+grey2 = "#A9A9A9"
+
+statusline1 = "#FFBE89"
+statusline2 = "#FAFAFA"
+statusline3 = "#D2D2D2"
+
 [conda]
 ignore_base = true
 

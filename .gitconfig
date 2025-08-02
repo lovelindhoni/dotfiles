@@ -2,7 +2,7 @@
 	email = jblovelindhoni@gmail.com
 	name = lovelindhoni
 [commit]
-	template = /home/lovelindhoni/.gitmessage.txt
+	template = /home/lovelin/.gitmessage.txt
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]

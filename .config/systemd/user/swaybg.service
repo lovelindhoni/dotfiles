@@ -1,0 +1,9 @@
+[Unit]
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+; ExecStart=/bin/bash -c 'IMG=$(find "$HOME/Pictures/wallpapers" -type f | shuf -n1); exec swaybg -m fill -i "$IMG"'
+ExecStart=/bin/bash -c 'IMG="$HOME/Pictures/wallpapers/Julius von Klever-jesus-sunset.jpeg"; exec swaybg -m fill -i "$IMG"'
+Restart=on-failure
