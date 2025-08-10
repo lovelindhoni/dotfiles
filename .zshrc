@@ -25,7 +25,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 export DIRENV_LOG_FORMAT=
 
 # zsh history stuffs
-HISTFILE=~/.zsh-utils/zsh_history # location of the history file
+HISTFILE=~/.zsh_history # location of the history file
 export HISTFILESIZE=10000000 # history limit of the file on disk
 export HISTSIZE=10000000 # current session's history limit
 export SAVEHIST=500000 # zsh saves this many lines from the in-memory history list to the history file upon shell exit
