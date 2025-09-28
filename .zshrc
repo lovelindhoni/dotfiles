@@ -14,6 +14,10 @@ alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias zen="flatpak run app.zen_browser.zen"
 
 # env
+set -a
+source ~/.zsh-utils/.secrets.env
+set +a
+
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
@@ -77,9 +81,9 @@ _evalcache direnv hook zsh
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of Zinit's installer chunk
 
-# sourcing
 source "/home/lovelin/.zsh-utils/functions.zsh"
 
 # if [ -z "$TMUX" ]; then
 #   tmux new-session -A -s master
 # fi
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

@@ -1,5 +1,10 @@
 vim.g.netrw_liststyle = 3
 
+vim.diagnostic.config({
+  virtual_text = true,
+  severity_sort = true,
+})
+
 local opt = vim.opt -- for conciseness
 
 -- line numbers

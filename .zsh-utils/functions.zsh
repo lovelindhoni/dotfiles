@@ -51,4 +51,36 @@ nvim_check_cpfolder() {
     fi
 }
 
+start_ttyd() {
+    local user="$1"
+    local pass="$2"
+
+    if [[ -z "$user" ]]; then
+        ttyd -W -t 'fontSize=14' -t 'fit=true' zsh
+    elif [[ -n "$user" && -z "$pass" ]]; then
+        ttyd -c "${user}:" -t 'fontSize=14' -t 'fit=true' -W  zsh
+    else
+        ttyd -c "${user}:${pass}" -t 'fontSize=14' -t 'fit=true' -W zsh
+    fi
+}
+
+
+start_vnc() {
+    local vnc_host="0.0.0.0"
+    local vnc_port="5900"
+    local novnc_listen="localhost:6080"
+
+    echo "Starting WayVNC on ${vnc_host}:${vnc_port}..."
+    wayvnc "$vnc_host" "$vnc_port" &
+
+    local wayvnc_pid=$!
+    echo "WayVNC PID: $wayvnc_pid"
+
+    echo "Starting noVNC proxy on ${novnc_listen}..."
+    $HOME/Dev/noVNC/utils/novnc_proxy --vnc "localhost:${vnc_port}" --listen "${novnc_listen}"
+
+    echo "Stopping WayVNC..."
+    kill $wayvnc_pid
+}
+
 alias nvim=nvim_check_cpfolder

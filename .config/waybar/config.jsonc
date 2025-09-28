@@ -25,7 +25,6 @@
         "tooltip-format": "<span font-family='JetBrainsMono Nerd Font'>{calendar}</span>"
     },
 
-
 "mpris": {
     "format": "{player_icon} {title} - {artist}",
     "format-paused": "{status_icon} <i>{title} - {artist}</i>",

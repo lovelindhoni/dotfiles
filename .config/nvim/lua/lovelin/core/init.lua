@@ -8,9 +8,3 @@ end
 
 vim.api.nvim_create_user_command("Comp", Comp, {})
 vim.keymap.set("n", "<leader>cp", ":lua Comp()<CR>", { desc = "Compile CXX" })
-
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  update_in_insert = false,
-})

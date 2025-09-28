@@ -41,7 +41,7 @@ input {
 
     mouse {
         // off
-        natural-scroll
+        // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "no-scroll"
@@ -50,7 +50,7 @@ input {
     trackpoint {
         // off
         // natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.9
         // accel-profile "flat"
         // scroll-method "on-button-down"
         // scroll-button 273
@@ -266,13 +266,10 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "niriswitcher"
 
 // some envs
 environment {
   ELECTRON_OZONE_PLATFORM_HINT "wayland"
-  DISPLAY ":0"
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -403,8 +400,10 @@ binds {
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
+    Mod+J              { focus-workspace-down; }
+    Mod+K              { focus-workspace-up; }
+    // Mod+J     { focus-window-down; }
+    // Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
