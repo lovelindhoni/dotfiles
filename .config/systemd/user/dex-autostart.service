@@ -1,0 +1,9 @@
+[Unit]
+Description=DEX XDG autostart
+
+[Service]
+ExecStart=/usr/sbin/dex -a -s /etc/xdg/autostart/:/home/%u/.config/autostart/
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

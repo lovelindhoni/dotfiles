@@ -120,6 +120,15 @@ return {
             filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
           })
         end,
+        ["tombi"] = function()
+          lspconfig["tombi"].setup({
+            command = { "tombi", "lsp" },
+            capabilities = capabilities,
+            filetypes = { "toml" },
+            root_markers = { "tombi.toml", "pyproject.toml", ".git" },
+          })
+        end,
+
         ["rust_analyzer"] = function()
           lspconfig["rust_analyzer"].setup({
             capabilities = capabilities,

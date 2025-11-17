@@ -1,0 +1,9 @@
+[Unit]
+Description=Polybar status bar
+
+[Service]
+ExecStart=/home/%u/.config/polybar/launch.sh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

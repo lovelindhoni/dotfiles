@@ -1,0 +1,9 @@
+[Unit]
+Description=NetworkManager Applet
+
+[Service]
+ExecStart=/usr/sbin/nm-applet
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

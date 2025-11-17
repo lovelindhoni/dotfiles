@@ -1,0 +1,9 @@
+[Unit]
+Description=Redshift
+
+[Service]
+ExecStart=/usr/sbin/redshift
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

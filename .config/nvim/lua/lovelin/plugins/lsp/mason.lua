@@ -35,9 +35,10 @@ return {
         "bashls",
         "yamlls",
         "ts_ls",
-        "rust_analyzer@2024-10-14",
+        "rust_analyzer",
         "nil_ls",
         "kotlin_language_server",
+        "tombi",
       },
     })
 

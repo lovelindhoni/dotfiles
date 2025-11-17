@@ -1,8 +1,7 @@
-font.size = 16
+font.size = 11
 
 [font.normal]
 family = "JetBrains Mono"
-
 
 [env]
 TERM = "xterm-256color"
@@ -16,7 +15,7 @@ decorations = "None"
 
 [terminal.shell]
 program = "/sbin/zsh"
-args = ["-l", "-c", "tmux attach-session -t master || tmux new-session -s master; exec $SHELL"]
+args = ["-l", "-c", "tmux -u attach-session -t master || tmux -u new-session -s master; exec /sbin/zsh"]
 
 [general]
 import = [
