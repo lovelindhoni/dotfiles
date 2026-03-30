@@ -52,7 +52,7 @@ local function split_nav(resize_or_move, key)
 	}
 end
 
-config.font_size = 17
+config.font_size = 16
 config.window_decorations = "RESIZE"
 config.window_frame = {
 	font_size = 13.0,
@@ -75,7 +75,7 @@ local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/col
 -- local moonfly, _ = wezterm.color.load_scheme("./.config/wezterm/colors/moonfly.toml")
 config.colors = everforest_dark_hard
 
--- config.window_background_opacity = 0.90
+-- config.window_background_opacity = 0.9
 
 config.warn_about_missing_glyphs = false
 

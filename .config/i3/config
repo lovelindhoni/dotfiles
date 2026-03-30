@@ -225,6 +225,7 @@ bindsym $mod+Shift+l exec "sleep 0.1 && betterlockscreen -l dim"
 exec xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --scale 1x1
 #exec xrandr --auto --output HDMI-1 --mode 1920x1080 --above HDMI-2
 exec feh --bg-fill ~/Pictures/wallpapers/woods.jpg
+exec --no-startup-id blueman-applet
 exec --no-startup-id xidlehook \
   --not-when-fullscreen \
   --not-when-audio \

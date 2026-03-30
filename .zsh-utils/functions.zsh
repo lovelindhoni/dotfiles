@@ -1,5 +1,13 @@
 #!/usr/bin/zsh
 
+function bench() {
+  start=$(date +%s.%N)
+  "$@"
+  end=$(date +%s.%N)
+  duration=$(echo "$end - $start" | bc)
+  echo "⏱️ Took: $(printf "%.2f" "$duration") seconds"
+}
+
 function ytdl() {
     if [[ -z "$1" ]]; then
         echo "Please provide a YouTube URL"

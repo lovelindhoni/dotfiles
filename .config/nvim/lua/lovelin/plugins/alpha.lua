@@ -85,7 +85,7 @@ return {
       [[---------------/                                                      ]],
     }
 
-    dashboard.section.header.val = cross
+    dashboard.section.header.val = too_much_pain_these_days
     dashboard.section.header.opts.position = "center"
     -- Set menu
     dashboard.section.buttons.val = {
