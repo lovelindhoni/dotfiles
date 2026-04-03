@@ -10,8 +10,6 @@ alias tx="tmux"
 alias py="python"
 alias rmf="rm -rf"
 alias c="clear"
-alias wezterm='flatpak run org.wezfurlong.wezterm'
-alias zen="flatpak run app.zen_browser.zen"
 
 # env
 set -a
@@ -22,8 +20,6 @@ export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
 # export CMAKE_GENERATOR='Ninja'
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export DIRENV_LOG_FORMAT=
@@ -82,8 +78,3 @@ _evalcache direnv hook zsh
 ### End of Zinit's installer chunk
 
 source "/home/lovelin/.zsh-utils/functions.zsh"
-
-# if [ -z "$TMUX" ]; then
-#   tmux new-session -A -s master
-# fi
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
