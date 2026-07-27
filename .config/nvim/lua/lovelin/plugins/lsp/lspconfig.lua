@@ -92,12 +92,6 @@ return {
             single_file_support = true,
           })
         end,
-        ["kotlin_language_server"] = function()
-          lspconfig["kotlin_language_server"].setup({
-            capabilities = capabilities,
-            single_file_support = true,
-          })
-        end,
         ["svelte"] = function()
           -- configure svelte server
           lspconfig["svelte"].setup({
@@ -120,22 +114,19 @@ return {
             filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
           })
         end,
+        ["tombi"] = function()
+          lspconfig["tombi"].setup({
+            command = { "tombi", "lsp" },
+            capabilities = capabilities,
+            filetypes = { "toml" },
+            root_markers = { "tombi.toml", "pyproject.toml", ".git" },
+          })
+        end,
+
         ["rust_analyzer"] = function()
           lspconfig["rust_analyzer"].setup({
             capabilities = capabilities,
             single_file_support = true,
-          })
-        end,
-        ["nil_ls"] = function()
-          lspconfig["nil_ls"].setup({
-            capabilities = capabilities,
-            settings = {
-              ["nil"] = {
-                formatting = {
-                  command = { "nixfmt" },
-                },
-              },
-            },
           })
         end,
         ["lua_ls"] = function()

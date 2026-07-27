@@ -71,11 +71,12 @@ config.window_padding = {
 
 -- local onedark, _ = wezterm.color.load_scheme("./.config/wezterm/colors/onedark.toml")
 -- local tokyonight, _ = wezterm.color.load_scheme("./.config/wezterm/colors/tokyonight_night.toml")
-local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/colors/everforest-dark-hard.toml")
+-- local everforest_dark_hard, _ = wezterm.color.load_scheme("./.config/wezterm/colors/everforest-dark-hard.toml")
 -- local moonfly, _ = wezterm.color.load_scheme("./.config/wezterm/colors/moonfly.toml")
-config.colors = everforest_dark_hard
+local noctalia, _ = wezterm.color.load_scheme("./.config/wezterm/colors/Noctalia.toml")
+config.colors = noctalia
 
--- config.window_background_opacity = 0.90
+config.window_background_opacity = 0.9
 
 config.warn_about_missing_glyphs = false
 
@@ -150,4 +151,5 @@ for _, keymap in ipairs(tmux_like_keys) do
 end
 
 config.status_update_interval = 10000
+config.color_scheme = "Noctalia"
 return config

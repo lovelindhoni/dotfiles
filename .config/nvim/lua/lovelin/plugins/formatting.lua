@@ -14,7 +14,7 @@ return {
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
-        toml = { "prettier" },
+        toml = { "tombi" },
         markdown = { "prettier" },
         lua = { "stylua" },
         python = { "ruff_format" },
@@ -22,7 +22,6 @@ return {
         protobuf = { "clang-format" },
         rust = { "rustfmt" },
         nix = { "nixfmt" },
-        kotlin = { "ktfmt" },
       },
       format_on_save = {
         lsp_fallback = true,

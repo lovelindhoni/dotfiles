@@ -19,6 +19,7 @@ set +a
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export GIT_PAGER='bat'
+export BROWSER='firefox'
 # export CMAKE_GENERATOR='Ninja'
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.cargo/bin
