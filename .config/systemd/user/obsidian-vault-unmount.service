@@ -1,0 +1,6 @@
+[Unit]
+Description=Unmount Obsidian vault when it's not running
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'pgrep -f "[/]usr/lib/obsidian/app[.]asar" >/dev/null || /home/lovelin/scripts/vault unmount "$HOME/Documents/obsidian-master"'

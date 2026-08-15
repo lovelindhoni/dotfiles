@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if [[ -z "$1" ]]; then
+    print "usage: serve <port>"
+    exit 1
+fi
+
+ssh -R "80:localhost:$1" serveo.net

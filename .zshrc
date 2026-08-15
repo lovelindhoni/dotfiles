@@ -13,7 +13,7 @@ alias c="clear"
 
 # env
 set -a
-source ~/.zsh-utils/.secrets.env
+source ~/.secrets.env
 set +a
 
 export EDITOR='nvim'
@@ -78,4 +78,5 @@ _evalcache direnv hook zsh
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of Zinit's installer chunk
 
-source "/home/lovelin/.zsh-utils/functions.zsh"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/scripts:$PATH"

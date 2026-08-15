@@ -1,0 +1,103 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+usage() {
+    printf 'Usage: %s <command> <directory>\n\n' "$0"
+    printf 'Commands:\n'
+    printf '  init      Encrypt an existing directory\n'
+    printf '  mount     Mount an encrypted directory\n'
+    printf '  unmount   Unmount an encrypted directory\n'
+    printf '  status    Show whether the directory is mounted\n'
+    exit 1
+}
+
+die() {
+    printf 'error: %s\n' "$1" >&2
+    exit 1
+}
+
+command -v cryfs >/dev/null ||
+    die "cryfs is not installed"
+
+[[ $# -eq 2 ]] || usage
+
+command=$1
+vault=$(realpath -m "$2")
+encrypted="${vault}.encrypted"
+
+case "$command" in
+    init)
+        [[ -d "$vault" ]] ||
+            die "directory does not exist: $vault"
+
+        [[ ! -e "$encrypted" ]] ||
+            die "encrypted directory already exists: $encrypted"
+
+        mountpoint -q "$vault" &&
+            die "directory is already mounted: $vault"
+
+        temporary=$(mktemp -d "${vault}.XXXXXX")
+        rmdir "$temporary"
+        mv "$vault" "$temporary"
+
+        mkdir -p "$vault" "$encrypted"
+
+        cleanup() {
+            if mountpoint -q "$vault"; then
+                cryfs-unmount "$vault" || true
+            fi
+            rm -rf "$vault"
+            mv "$temporary" "$vault"
+            rmdir "$encrypted" 2>/dev/null || true
+        }
+
+        trap cleanup ERR
+
+        printf 'Initializing encrypted directory...\n'
+        cryfs "$encrypted" "$vault"
+
+        printf 'Copying files...\n'
+        cp -a "$temporary"/. "$vault"/
+
+        cryfs-unmount "$vault"
+        rmdir "$vault"
+        rm -rf "$temporary"
+
+        trap - ERR
+
+        printf 'Encrypted directory created:\n%s\n' "$encrypted"
+        ;;
+
+    mount)
+        [[ -d "$encrypted" ]] ||
+            die "encrypted directory does not exist: $encrypted"
+
+        mountpoint -q "$vault" &&
+            die "directory is already mounted: $vault"
+
+        mkdir -p "$vault"
+        cryfs "$encrypted" "$vault"
+        ;;
+
+    unmount)
+        mountpoint -q "$vault" ||
+            die "directory is not mounted: $vault"
+
+        cryfs-unmount "$vault"
+        rmdir "$vault"
+        ;;
+
+    status)
+        if mountpoint -q "$vault"; then
+            printf 'mounted:   %s\n' "$vault"
+            printf 'encrypted: %s\n' "$encrypted"
+        else
+            printf 'unmounted: %s\n' "$vault"
+        fi
+        ;;
+
+    *)
+        usage
+        ;;
+esac

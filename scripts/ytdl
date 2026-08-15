@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+if [[ -z "$1" ]]; then
+    print "usage: ytdl <youtube-url>"
+    exit 1
+fi
+
+url="$1"
+title=$(yt-dlp --get-filename -o "%(title)s" "$url") || exit 1
+
+yt-dlp \
+    -f bestaudio \
+    --extract-audio \
+    --audio-format mp3 \
+    --audio-quality 0 \
+    --embed-thumbnail \
+    --add-metadata \
+    --write-sub \
+    --sub-lang en,ta,hi \
+    -o "%(title)s.%(ext)s" \
+    "$url" || {
+        print "download failed"
+        exit 1
+    }
+
+for lang in en ta hi; do
+    [[ -f "${title}.${lang}.vtt" ]] &&
+        mv "${title}.${lang}.vtt" "${title}_${lang}.vtt"
+done
+
+rm -f "${title}"*.{webp,jpg,png,json,description}
+
+print "download complete"

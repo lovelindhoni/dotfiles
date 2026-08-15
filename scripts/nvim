@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+if [ "$PWD" = "$HOME/Dev/cp" ] && [ "$#" -eq 0 ]; then
+    nvim_bin=$(which -a nvim | sed -n '2p')
+    exec "$nvim_bin" -S ./.cpsession.vim
+else
+    nvim_bin=$(which -a nvim | sed -n '2p')
+    exec "$nvim_bin" "$@"
+fi
